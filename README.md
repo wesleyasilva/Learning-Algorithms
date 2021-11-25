@@ -1,1 +1,1 @@
-# Learning programming algorithms
+**Learning programming algorithms**
