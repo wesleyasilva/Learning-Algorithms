@@ -1,6 +1,6 @@
 from BFS import Bfs as Bfs
 
-grafo = {'a': set(['b', 'c']),
+graph = {'a': set(['b', 'c']),
          'b': set(['a', 'x']),
          'c': set(['a', 'h', 'x', 'y']),
          'f': set(['l']),
@@ -16,6 +16,11 @@ grafo = {'a': set(['b', 'c']),
          'y': set(['c', 'p', 'v'])}
 
 G =  Bfs()
-print('Vértices Visitados: '+str(G.bfs(grafo, 'a'))+'\n')
-print('Melhor Caminho: ',list(G.menor_caminho(grafo,'a','y')))
+print('Visited vertices: ',G.bfs(graph, 'a'),'\n')
+print('Best Way/Path: ',list(G.shortest_path(graph,'a','y')))
 
+c = 1
+for way in G.bfs_path(graph, 'a', 'z'):
+    print('%dº Possible Path' % c)
+    print(way,'\n')
+    c+=1
