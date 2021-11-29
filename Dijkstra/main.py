@@ -1,10 +1,10 @@
 from Dijkstra import Dijkstra as D
-import networkx as nx
 
-grafo1 = {'a':{'b':10, 'd':9, 'c':3},
+graph = {'a':{'b':10, 'd':9, 'c':3, 'e':3},
          'b':{'a':10,'c':2},
-         'c':{'b':2, 'a':3, 'd':4},
-         'd':{'a':9, 'c':4}}
+         'c':{'b':2, 'a':3, 'd':4, 'e':5},
+         'd':{'a':9, 'c':4, 'e':2},
+         'e':{'a':3,'c':5,'d':2}}
 
-graph1 = D(grafo1)
-print(graph1.dijkstra('a', 'd'))
+graph_object = D(graph)
+print(graph_object.dijkstra('a', 'd'))

@@ -5,35 +5,35 @@ class Dijkstra(object):
         self.graph = graph
 
     def dijkstra(self, u, v):
-        menor_distancia = {}
+        shortest_distance = {}
         pred = {}
         G = self.graph
-        caminho = []
+        way = []
         
-        for vertice in G:
-            menor_distancia[vertice] = np.inf
-        menor_distancia[u] = 0
+        for vertex in G:
+            shortest_distance[vertex] = np.inf
+        shortest_distance[u] = 0
 
         while G:
             minVert = None
-            for vertice in G:
+            for vertex in G:
                 if minVert is None:
-                    minVert = vertice
-                elif menor_distancia[vertice] < menor_distancia[minVert]:
-                    minVert = vertice
+                    minVert = vertex
+                elif shortest_distance[vertex] < shortest_distance[minVert]:
+                    minVert = vertex
             
-            for vert, custo in self.graph[minVert].items():
-                if custo + menor_distancia[minVert] < menor_distancia[vert]:
-                    menor_distancia[vert] = custo + menor_distancia[minVert]
+            for vert, cost in self.graph[minVert].items():
+                if cost + shortest_distance[minVert] < shortest_distance[vert]:
+                    shortest_distance[vert] = cost + shortest_distance[minVert]
                     pred[vert] = minVert
             G.pop(minVert)
         
-        vertice_atual = v
+        current_vertex = v
         
-        while vertice_atual != u:
-            caminho.insert(0,vertice_atual)
-            vertice_atual = pred[vertice_atual]
+        while current_vertex != u:
+            way.insert(0,current_vertex)
+            current_vertex = pred[current_vertex]
         
-        caminho.insert(0,u)
-        if menor_distancia[v] != np.inf:
-           return str(caminho)
+        way.insert(0,u)
+        if shortest_distance[v] != np.inf:
+           return str(way)
