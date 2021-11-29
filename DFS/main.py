@@ -1,6 +1,6 @@
 from DFS import Dfs as Dfs
 
-grafo = {'a':set(['b','c','d']),
+graph = {'a':set(['b','c','d']),
          'b':set(['a']),
          'c':set(['a']),
          'd':set(['a','e']),
@@ -8,4 +8,4 @@ grafo = {'a':set(['b','c','d']),
          'f':set(['e'])}
 
 G = Dfs()
-print('\tDFS(a,f): '+str(list(G.caminho_dfs(grafo, 'a', 'f')))+'\n')
+print('\tDFS(a,f): '+str(list(G.dfs_path(graph, 'a', 'f')))+'\n')

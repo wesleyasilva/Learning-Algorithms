@@ -2,12 +2,12 @@ class Dfs(object):
     def __init__(self):
         return 
 
-    def caminho_dfs(self, G, s, t, caminho=None):
-        if caminho is None:
-            caminho = [s]
+    def dfs_path(self, G, s, t, path=None):
+        if path is None:
+            path = [s]
 
         if s == t:
-            yield caminho
+            yield path
 
-        for proximo in G[s] - set(caminho):
-            yield from self.caminho_dfs(G, proximo, t, caminho + [proximo])
+        for nextt in G[s] - set(path):
+            yield from self.dfs_path(G, nextt, t, path + [nextt])
